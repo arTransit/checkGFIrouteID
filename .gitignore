@@ -10,3 +10,6 @@
 # FME
 *.log
 *.recover
+
+# ArcGIS
+*.lock
