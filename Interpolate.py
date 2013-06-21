@@ -111,8 +111,8 @@ class FMEInterpolatePoints(object):
                     break
 
     def makePointFeature( self, g, gps1, gps2=None):
-        self.logging("makePointFeature: making new point for %s %s" % (
-                g.getAttribute( 'BUSID' ),g.getAttribute( 'TIMESTAMP' )))
+        self.logging("makePointFeature: making new point for %s %s %s" % (
+                g.getAttribute( '_ID' ), g.getAttribute( 'BUSID' ),g.getAttribute( 'TIMESTAMP' )))
         f = fmeobjects.FMEFeature()
         for a in g.getAllAttributeNames():
             f.setAttribute( a, g.getAttribute( a ))
@@ -144,10 +144,16 @@ class FMEInterpolatePoints(object):
         
             dx = float(self.previousX - x)
             dy = float(self.previousY - y)
-            bearing = math.degrees( math.atan2( dy,dx ) ) % 360
+            bearing = (90- math.degrees( math.atan2( dy,dx ) )) % 360
             distance= math.sqrt(math.pow(( dx ),2) + math.pow(( dy ),2))
             speed = distance / float(timestamp1 - timestamp2)
 
+            self.logging("makePointFeature: old:(%s,%s), new:(%s,%s)" % (str(self.previousX),str(self.previousY), str(x), str(y)))
+            self.logging("makePointFeature: dx:%s" % (str(dx)))
+            self.logging("makePointFeature: dy:%s" % (str(dy)))
+            self.logging("makePointFeature: bearing:%s" % (str(bearing)))
+            
+            
             if not self.previousBearing or (previousPointDistance > MINPOINTDISTANCE):
                 self.previousBearing = bearing
             else:  # bus has not moved > MINPOINTDISTANCE
