@@ -5,7 +5,7 @@ import math
 """ Global Variables
 """
 
-LOGIT=0
+LOGIT=1
 MAXTIMEDIFF=100 # in seconds
 MINPOINTDISTANCE=3.0  # minimum distance between gfi points
 
@@ -55,6 +55,9 @@ class FMEInterpolatePoints(object):
             if currentBus < int( gfi.getAttribute('BUSID')):
                 currentBus = int( gfi.getAttribute('BUSID') )
                 self.logging("FMEInterpolatePoints: new bus %s" % str(currentBus) )
+                self.previousBearing = None
+                self.previousX = None
+                self.previousY = None
                 while ( currentBus > int( currentGPS.getAttribute('BUSID')) ):
                     lastGPS = currentGPS
                     currentGPS = self.gpsData.pop(0)
@@ -124,63 +127,46 @@ class FMEInterpolatePoints(object):
 
             dx = float(x2-x1)
             dy = float(y2-y1)
-            
             timeRatio = (timestamp0 - timestamp1) / (timestamp2 - timestamp1)
             x = (timeRatio * dx) + x1
             y = (timeRatio * dy) + y1
             
-            self.logging("makePointFeature: B")
-            if self.previousBearing is None: previousPointDistance=0
-            else: previousPointDistance= math.sqrt(math.pow(( self.previousX-x ),2) + math.pow(( self.previousY-y ),2))
-            
-            if previousPointDistance > MINPOINTDISTANCE:
-                self.logging("makePointFeature: C2")
-                bearing = math.degrees( math.atan2( dy,dx ) ) % 360
-                distance= math.sqrt(math.pow(( dx ),2) + math.pow(( dy ),2))
-                speed = distance / float(timestamp1 - timestamp2)
-
-                self.previousBearing = bearing
-                self.previousSpeed = speed
-            else:  # bus has not moved > MINPOINTDISTANCE
-                self.logging("makePointFeature: C1")
-                if self.previousBearing is None:
-                    bearing = 0
-                    speed = 0
-                else:
-                    bearing = self.previousBearing
-                    speed = self.previousSpeed
-
-            f.setCoordSys( gps1.getCoordSys() )
-            f.setGeometryType( gps1.getGeometryType() )
-            f.addCoordinate( x, y )
-            f.setAttribute( '_STATUS', 1)
-            f.setAttribute( 'POINTCALC', 1)
-            f.setAttribute( 'LATITUDE', y)
-            f.setAttribute( 'LONGITUDE', x)
-            f.setAttribute( 'SPEED', speed)
-            f.setAttribute( 'BEARING', bearing)
-
         else:
             self.logging("makePointFeature: not interpolating")
-            f.setCoordSys( gps1.getCoordSys() )
-            f.setGeometryType( gps1.getGeometryType() )
-            #f.setGeometry( gps1.getGeometry() )
             x,y = gps1.getCoordinate(0)
-            f.addCoordinate( x, y )
-            f.setAttribute( '_STATUS', 1)
+            
+        if self.previousX is None: 
+            #previousPointDistance=0
             f.setAttribute( 'POINTCALC', 0)
-            f.setAttribute( 'LATITUDE', y)
-            f.setAttribute( 'LONGITUDE', x)
-            if self.previousBearing is None:
-                f.setAttribute( 'BEARING', 0)
-                f.setAttribute( 'SPEED', 0)
-            else:
-                f.setAttribute( 'BEARING', self.previousBearing)
-                f.setAttribute( 'SPEED', self.previousSpeed)
+        else: 
+            previousPointDistance= math.sqrt(math.pow(( self.previousX-x ),2) 
+                    + math.pow(( self.previousY-y ),2))
+        
+            dx = float(self.previousX - x)
+            dy = float(self.previousY - y)
+            bearing = math.degrees( math.atan2( dy,dx ) ) % 360
+            distance= math.sqrt(math.pow(( dx ),2) + math.pow(( dy ),2))
+            speed = distance / float(timestamp1 - timestamp2)
+
+            if not self.previousBearing or (previousPointDistance > MINPOINTDISTANCE):
+                self.previousBearing = bearing
+            else:  # bus has not moved > MINPOINTDISTANCE
+                bearing = self.previousBearing
+        
+            f.setAttribute( 'POINTCALC', 1)
+            f.setAttribute( 'SPEED', speed)
+            f.setAttribute( 'BEARING', bearing)
                 
         self.previousX = x
         self.previousY = y
+
         f.setAttribute( 'GPSID', gps1.getAttribute( '_ID' ))
+        f.setAttribute( '_STATUS', 1)
+        f.setCoordSys( gps1.getCoordSys() )
+        f.setGeometryType( gps1.getGeometryType() )
+        f.addCoordinate( x, y )
+        f.setAttribute( 'LATITUDE', y)
+        f.setAttribute( 'LONGITUDE', x)
         return f
         
     def makeNullFeature( self, g ):
