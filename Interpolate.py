@@ -18,6 +18,10 @@ class FMEInterpolatePoints(object):
         self.previousBearing = None
         self.previousX = None
         self.previousY = None
+        
+        self.currentBearing = None
+        self.gpsX = None
+        self.gpsY = None
 
         self.logger = fmeobjects.FMELogFile()
 
@@ -144,7 +148,7 @@ class FMEInterpolatePoints(object):
         
             dx = float(self.previousX - x)
             dy = float(self.previousY - y)
-            bearing = (90- math.degrees( math.atan2( dy,dx ) )) % 360
+            bearing = math.degrees( math.atan2( dy,dx ) ) % 360
             distance= math.sqrt(math.pow(( dx ),2) + math.pow(( dy ),2))
             speed = distance / float(timestamp1 - timestamp2)
 
@@ -161,7 +165,7 @@ class FMEInterpolatePoints(object):
         
             f.setAttribute( 'POINTCALC', 1)
             f.setAttribute( 'SPEED', speed)
-            f.setAttribute( 'BEARING', bearing)
+            if bearing: f.setAttribute( 'BEARING', bearing)
                 
         self.previousX = x
         self.previousY = y
