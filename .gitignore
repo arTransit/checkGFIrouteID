@@ -1,0 +1,12 @@
+# Python
+*.pyc
+
+# Shape files
+*.shp
+*.dbf
+*.shx
+*.prj
+
+# FME
+*.log
+*.recover
