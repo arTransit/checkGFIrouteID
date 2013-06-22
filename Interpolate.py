@@ -40,10 +40,8 @@ class FMEInterpolatePoints(object):
         currentBus = 0
         currentTime = 0
         currentGPS = self.gpsData.pop(0)
+        self.updateBearing( currentGPS )
         lastGPS = None
-        self.previousBearing = None
-        self.previousX = None
-        self.previousY = None
         
         self.logging("FMEInterpolatePoints: Processing...")
         self.logging("FMEInterpolatePoints: gfiData %s" % len(self.gfiData) )
@@ -59,12 +57,17 @@ class FMEInterpolatePoints(object):
             if currentBus < int( gfi.getAttribute('BUSID')):
                 currentBus = int( gfi.getAttribute('BUSID') )
                 self.logging("FMEInterpolatePoints: new bus %s" % str(currentBus) )
-                self.previousBearing = None
-                self.previousX = None
-                self.previousY = None
+                
+                # new bus - reset bearing
+                self.currentBearing = None
+                self.gpsX = None
+                self.gpsY = None
+                
                 while ( currentBus > int( currentGPS.getAttribute('BUSID')) ):
                     lastGPS = currentGPS
                     currentGPS = self.gpsData.pop(0)
+                
+                self.updateBearing( currentGPS )
                 self.logging("FMEInterpolatePoints: gps bus/moved to %s %s" % (
                         currentGPS.getAttribute( 'BUSID' ),currentGPS.getAttribute( 'TIMESTAMP' )))
             
@@ -89,6 +92,7 @@ class FMEInterpolatePoints(object):
                             break
                         else:
                             currentGPS = self.gpsData.pop(0)
+                            self.updateBearing( currentGPS )
 
                         if currentBus != int(currentGPS.getAttribute('BUSID')): 
                             self.logging("    have passed over bus/apc")
@@ -114,6 +118,33 @@ class FMEInterpolatePoints(object):
                     self.logging("    gps data finished - exit")
                     break
 
+    def updateBearing( self, gps ):
+        '''
+        self.currentBearing = None
+        self.gpsX = None
+        self.gpsY = None
+        '''
+        x,y = gps.getCoordinate(0)
+        self.logging("updateBearing: _ID:%s (%s,%s)" % (gps.getAttribute('_ID'),str(x),str(y)))
+        if self.gpsX:
+            dx = float(x- self.gpsX)
+            dy = float(y- self.gpsY)
+            bearing = (90 - math.degrees( math.atan2( dy,dx ))) % 360
+            distance= math.sqrt(math.pow(( dx ),2) + math.pow(( dy ),2))
+            self.logging("updateBearing: distance:%s" % str(distance))
+            self.logging("updateBearing: bearing:%s" % str(bearing))
+            
+            if distance > MINPOINTDISTANCE:
+                self.logging("updateBearing: USING NEW BEARING")
+                self.currentBearing = bearing
+                self.gpsX,self.gpsY = x,y
+            else:# do nothing - points too close together
+                self.logging("updateBearing: points too close")
+        else:
+            self.logging("updateBearing: initializing bearing xy")
+            self.currentBearing = None
+            self.gpsX,self.gpsY = x,y
+    
     def makePointFeature( self, g, gps1, gps2=None):
         self.logging("makePointFeature: making new point for %s %s %s" % (
                 g.getAttribute( '_ID' ), g.getAttribute( 'BUSID' ),g.getAttribute( 'TIMESTAMP' )))
@@ -138,34 +169,11 @@ class FMEInterpolatePoints(object):
         else:
             self.logging("makePointFeature: not interpolating")
             x,y = gps1.getCoordinate(0)
-            
-        if self.previousX is None: 
-            #previousPointDistance=0
-            f.setAttribute( 'POINTCALC', 0)
-        else: 
-            previousPointDistance= math.sqrt(math.pow(( self.previousX-x ),2) 
-                    + math.pow(( self.previousY-y ),2))
-        
-            dx = float(self.previousX - x)
-            dy = float(self.previousY - y)
-            bearing = math.degrees( math.atan2( dy,dx ) ) % 360
-            distance= math.sqrt(math.pow(( dx ),2) + math.pow(( dy ),2))
-            speed = distance / float(timestamp1 - timestamp2)
-
-            self.logging("makePointFeature: old:(%s,%s), new:(%s,%s)" % (str(self.previousX),str(self.previousY), str(x), str(y)))
-            self.logging("makePointFeature: dx:%s" % (str(dx)))
-            self.logging("makePointFeature: dy:%s" % (str(dy)))
-            self.logging("makePointFeature: bearing:%s" % (str(bearing)))
-            
-            
-            if not self.previousBearing or (previousPointDistance > MINPOINTDISTANCE):
-                self.previousBearing = bearing
-            else:  # bus has not moved > MINPOINTDISTANCE
-                bearing = self.previousBearing
         
             f.setAttribute( 'POINTCALC', 1)
             f.setAttribute( 'SPEED', speed)
-            if bearing: f.setAttribute( 'BEARING', bearing)
+        
+        if self.currentBearing: f.setAttribute( 'BEARING', self.currentBearing)
                 
         self.previousX = x
         self.previousY = y
