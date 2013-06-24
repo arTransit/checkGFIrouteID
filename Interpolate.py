@@ -5,7 +5,7 @@ import math
 """ Global Variables
 """
 
-LOGIT=1
+LOGIT=0
 MAXTIMEDIFF=100 # in seconds
 MINPOINTDISTANCE=3.0  # minimum distance between gfi points
 
