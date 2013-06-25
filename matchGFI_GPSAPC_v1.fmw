@@ -45,7 +45,7 @@
 #! VIEW_PAGE_BREAKS="false"
 #! WORKSPACE_VERSION="1"
 #! DESTINATION_ROUTING_FILE=""
-#! LAST_SAVE_DATE="2013-06-24T14:13:32"
+#! LAST_SAVE_DATE="2013-06-25T11:45:02"
 #! FME_GEOMETRY_HANDLING="Enhanced"
 #! TITLE=""
 #! USAGE=""
@@ -1181,7 +1181,7 @@
 #! <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
 #! <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="GFI"/>
 #! <XFORM_PARM PARM_NAME="DATASET" PARM_VALUE="C:&lt;backslash&gt;AndrewRoss&lt;backslash&gt;Work&lt;backslash&gt;AR_Whistler&lt;backslash&gt;Data&lt;backslash&gt;whistlerData03.db"/>
-#! <XFORM_PARM PARM_NAME="SQL_STATEMENT" PARM_VALUE="select&lt;space&gt;_ID&lt;comma&gt;BUS&lt;space&gt;as&lt;space&gt;BUSID&lt;comma&gt;TIMESTAMP&lt;comma&gt;BUSDAY&lt;comma&gt;TYPE&lt;comma&gt;ROUTE&lt;comma&gt;DAYTYPE&lt;space&gt;from&lt;space&gt;V_GFIGOOD&lt;lf&gt;where&lt;space&gt;V_GFIGOOD.BUS&lt;space&gt;in&lt;space&gt;V_GPSBUS&lt;space&gt;and&lt;space&gt;V_GFIGOOD.TYPE&lt;space&gt;in&lt;space&gt;&lt;openparen&gt;115&lt;comma&gt;119&lt;comma&gt;129&lt;comma&gt;143&lt;closeparen&gt;&lt;lf&gt;and&lt;space&gt;BUS=1014&lt;lf&gt;order&lt;space&gt;by&lt;space&gt;BUS&lt;comma&gt;TIMESTAMP&lt;lf&gt;"/>
+#! <XFORM_PARM PARM_NAME="SQL_STATEMENT" PARM_VALUE="select&lt;space&gt;_ID&lt;comma&gt;BUS&lt;space&gt;as&lt;space&gt;BUSID&lt;comma&gt;TIMESTAMP&lt;comma&gt;BUSDAY&lt;comma&gt;TYPE&lt;comma&gt;ROUTE&lt;comma&gt;DAYTYPE&lt;space&gt;from&lt;space&gt;V_GFIGOOD&lt;lf&gt;where&lt;space&gt;V_GFIGOOD.BUS&lt;space&gt;in&lt;space&gt;V_GPSBUS&lt;space&gt;and&lt;space&gt;V_GFIGOOD.TYPE&lt;space&gt;in&lt;space&gt;&lt;openparen&gt;115&lt;comma&gt;119&lt;comma&gt;129&lt;comma&gt;143&lt;closeparen&gt;&lt;lf&gt;and&lt;space&gt;BUS=1014&lt;space&gt;and&lt;space&gt;TIMESTAMP&lt;space&gt;between&lt;space&gt;1359905720&lt;space&gt;and&lt;space&gt;1359905920&lt;lf&gt;order&lt;space&gt;by&lt;space&gt;BUS&lt;comma&gt;TIMESTAMP&lt;lf&gt;"/>
 #! <XFORM_PARM PARM_NAME="COORDSYS" PARM_VALUE=""/>
 #! <XFORM_PARM PARM_NAME="EXPOSED_ATTRIBUTE_LIST" PARM_VALUE="_ID,BUSDAY,BUSID,DAYTYPE,ROUTE,TIMESTAMP,TYPE"/>
 #! <XFORM_PARM PARM_NAME="FORMAT_PARAMS" PARM_VALUE=""/>
@@ -1811,7 +1811,7 @@
 #! <XFORM_ATTR ATTR_NAME="_closest_base_y" IS_USER_CREATED="false" FEAT_INDEX="0"/>
 #! <XFORM_ATTR ATTR_NAME="STOPANGLE" IS_USER_CREATED="false" FEAT_INDEX="0"/>
 #! <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="AttributeCreator_5"/>
-#! <XFORM_PARM PARM_NAME="ATTR_LIST" PARM_VALUE="STOPANGLE,&lt;at&gt;Evaluate&lt;openparen&gt;fmod&lt;openparen&gt;360.0&lt;space&gt;+&lt;space&gt;90.0&lt;space&gt;-&lt;space&gt;&lt;at&gt;Value&lt;openparen&gt;_angle&lt;closeparen&gt;&lt;comma&gt;&lt;space&gt;360.0&lt;closeparen&gt;&lt;closeparen&gt;"/>
+#! <XFORM_PARM PARM_NAME="ATTR_LIST" PARM_VALUE="STOPANGLE,&lt;at&gt;Evaluate&lt;openparen&gt;fmod&lt;openparen&gt;360.0&lt;space&gt;+&lt;space&gt;180.0&lt;space&gt;-&lt;space&gt;&lt;at&gt;Value&lt;openparen&gt;_angle&lt;closeparen&gt;&lt;comma&gt;&lt;space&gt;360.0&lt;closeparen&gt;&lt;closeparen&gt;"/>
 #! </TRANSFORMER>
 #! <TRANSFORMER
 #! IDENTIFIER="33"
@@ -2060,7 +2060,7 @@
 #! <XFORM_PARM PARM_NAME="GROUP_BY" PARM_VALUE=""/>
 #! <XFORM_PARM PARM_NAME="TEST_LIST_NAME" PARM_VALUE=""/>
 #! <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE="-"/>
-#! <XFORM_PARM PARM_NAME="MAX" PARM_VALUE="100"/>
+#! <XFORM_PARM PARM_NAME="MAX" PARM_VALUE="500"/>
 #! <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="NeighborFinder"/>
 #! <XFORM_PARM PARM_NAME="CLOSE_LIST_NAME" PARM_VALUE="close"/>
 #! <XFORM_PARM PARM_NAME="CANDIDATES_FIRST" PARM_VALUE="No"/>
@@ -5003,7 +5003,7 @@
 #! <XFORM_ATTR ATTR_NAME="CONFIGDATA" IS_USER_CREATED="false" FEAT_INDEX="0"/>
 #! <XFORM_ATTR ATTR_NAME="DISTANCE" IS_USER_CREATED="false" FEAT_INDEX="0"/>
 #! <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="AttributeCreator_12"/>
-#! <XFORM_PARM PARM_NAME="ATTR_LIST" PARM_VALUE="CONFIGDATA,1,DISTANCE,100"/>
+#! <XFORM_PARM PARM_NAME="ATTR_LIST" PARM_VALUE="CONFIGDATA,1,DISTANCE,50"/>
 #! </TRANSFORMER>
 #! <TRANSFORMER
 #! IDENTIFIER="120"
@@ -5606,44 +5606,8 @@
 #! </TRANSFORMERS>
 #! <FEAT_LINKS>
 #! <FEAT_LINK
-#! IDENTIFIER="58"
-#! SOURCE_NODE="38"
-#! TARGET_NODE="39"
-#! SOURCE_PORT_DESC="fo 0"
-#! TARGET_PORT_DESC="fi 0"
-#! ENABLED="false"
-#! EXTRA_POINTS=""
-#! />
-#! <FEAT_LINK
-#! IDENTIFIER="57"
-#! SOURCE_NODE="39"
-#! TARGET_NODE="44"
-#! SOURCE_PORT_DESC="fo 0"
-#! TARGET_PORT_DESC="fi 0"
-#! ENABLED="false"
-#! EXTRA_POINTS=""
-#! />
-#! <FEAT_LINK
-#! IDENTIFIER="56"
-#! SOURCE_NODE="44"
-#! TARGET_NODE="32"
-#! SOURCE_PORT_DESC="fo 0"
-#! TARGET_PORT_DESC="-1"
-#! ENABLED="false"
-#! EXTRA_POINTS=""
-#! />
-#! <FEAT_LINK
-#! IDENTIFIER="55"
-#! SOURCE_NODE="39"
-#! TARGET_NODE="45"
-#! SOURCE_PORT_DESC="fo 1"
-#! TARGET_PORT_DESC="fi 0"
-#! ENABLED="false"
-#! EXTRA_POINTS=""
-#! />
-#! <FEAT_LINK
-#! IDENTIFIER="54"
-#! SOURCE_NODE="45"
+#! IDENTIFIER="52"
+#! SOURCE_NODE="46"
 #! TARGET_NODE="32"
 #! SOURCE_PORT_DESC="fo 0"
 #! TARGET_PORT_DESC="-1"
@@ -5660,11 +5624,47 @@
 #! EXTRA_POINTS=""
 #! />
 #! <FEAT_LINK
-#! IDENTIFIER="52"
-#! SOURCE_NODE="46"
+#! IDENTIFIER="54"
+#! SOURCE_NODE="45"
 #! TARGET_NODE="32"
 #! SOURCE_PORT_DESC="fo 0"
 #! TARGET_PORT_DESC="-1"
+#! ENABLED="false"
+#! EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#! IDENTIFIER="55"
+#! SOURCE_NODE="39"
+#! TARGET_NODE="45"
+#! SOURCE_PORT_DESC="fo 1"
+#! TARGET_PORT_DESC="fi 0"
+#! ENABLED="false"
+#! EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#! IDENTIFIER="56"
+#! SOURCE_NODE="44"
+#! TARGET_NODE="32"
+#! SOURCE_PORT_DESC="fo 0"
+#! TARGET_PORT_DESC="-1"
+#! ENABLED="false"
+#! EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#! IDENTIFIER="57"
+#! SOURCE_NODE="39"
+#! TARGET_NODE="44"
+#! SOURCE_PORT_DESC="fo 0"
+#! TARGET_PORT_DESC="fi 0"
+#! ENABLED="false"
+#! EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#! IDENTIFIER="58"
+#! SOURCE_NODE="38"
+#! TARGET_NODE="39"
+#! SOURCE_PORT_DESC="fo 0"
+#! TARGET_PORT_DESC="fi 0"
 #! ENABLED="false"
 #! EXTRA_POINTS=""
 #! />
@@ -6596,28 +6596,28 @@ FACTORY_DEF * TeeFactory   FACTORY_NAME "AttributeFilter Exists Splitter"   INPU
 FACTORY_DEF * TransformFact:9:NeighborFinder    FACTORY_NAME NeighborFinder_2    FACTORY_META_PARAMS    TRANSFORMER_NAME:NeighborFinder_2    TRANSFORMER_PARAMS:XFORMER_NAME,NeighborFinder_2,TRANSFORMER_GROUP,,PARAMETERS_GROUP,,GROUP_BY,,MAX,50,INSERT_VERTEX,No,CANDIDATES_FIRST,No,CLOSE_LIST_NAME,,TEST_LIST_NAME,,TREAT_POLYGON_AS,Lines    MULTI_PROCESS AGGRESSIVE INPUT BASE FEATURE_TYPE AttributeFilter_Exists_0 INPUT CANDIDATE FEATURE_TYPE Roads    OUTPUT MATCHED FEATURE_TYPE NeighborFinder_2_MATCHED
 # -------------------------------------------------------------------------
 
-Tcl2 proc c2db301f_ecaf_4aa6_a010_09df03f50ca32_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_5}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_5}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
+Tcl2 proc bfb23e2a_4bb7_4b7b_9b3a_475da629bcd63_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_5}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_5}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_5    INPUT  FEATURE_TYPE NeighborFinder_2_MATCHED    OUTPUT FEATURE_TYPE AttributeCreator_5_OUTPUT         "@Tcl2( c2db301f_ecaf_4aa6_a010_09df03f50ca32_attrSetter {(STOPANGLE,<at>Evaluate<openparen>fmod<openparen>360.0<space>+<space>90.0<space>-<space><at>Value<openparen>_angle<closeparen><comma><space>360.0<closeparen><closeparen>)} )"
+FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_5    INPUT  FEATURE_TYPE NeighborFinder_2_MATCHED    OUTPUT FEATURE_TYPE AttributeCreator_5_OUTPUT         "@Tcl2( bfb23e2a_4bb7_4b7b_9b3a_475da629bcd63_attrSetter {(STOPANGLE,<at>Evaluate<openparen>fmod<openparen>360.0<space>+<space>180.0<space>-<space><at>Value<openparen>_angle<closeparen><comma><space>360.0<closeparen><closeparen>)} )"
 
 # -------------------------------------------------------------------------
 
-INCLUDE [    set macroLine "MACRO 058f0084_1a14_4993_9304_79fe137871072_LIST_EXP ";    foreach attr [split ""] {       set attr [FME_DecodeText $attr];       set attr [regsub "{}$" $attr "{}.*"];       set attr [regsub -all "{}" $attr "{\[0-9\]+}"];       append macroLine ",^$attr$";    };    puts $macroLine; ]
+INCLUDE [    set macroLine "MACRO f6460307_1a57_4093_83c2_0390eba29e383_LIST_EXP ";    foreach attr [split ""] {       set attr [FME_DecodeText $attr];       set attr [regsub "{}$" $attr "{}.*"];       set attr [regsub -all "{}" $attr "{\[0-9\]+}"];       append macroLine ",^$attr$";    };    puts $macroLine; ]
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeKeeper    INPUT  FEATURE_TYPE AttributeCreator_5_OUTPUT    OUTPUT FEATURE_TYPE AttributeKeeper_OUTPUT        @KeepAttributes(STOPID,STOPNAME,LATITUDE,LONGITUDE,STATUS,BCTREGION,BCTSYSTEM,STOPANGLE,fme_regexp_match,"^fme_$(058f0084_1a14_4993_9304_79fe137871072_LIST_EXP)")
+FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeKeeper    INPUT  FEATURE_TYPE AttributeCreator_5_OUTPUT    OUTPUT FEATURE_TYPE AttributeKeeper_OUTPUT        @KeepAttributes(STOPID,STOPNAME,LATITUDE,LONGITUDE,STATUS,BCTREGION,BCTSYSTEM,STOPANGLE,fme_regexp_match,"^fme_$(f6460307_1a57_4093_83c2_0390eba29e383_LIST_EXP)")
 
 FACTORY_DEF * TeeFactory   FACTORY_NAME "AttributeKeeper OUTPUT Splitter"   INPUT FEATURE_TYPE AttributeKeeper_OUTPUT   OUTPUT FEATURE_TYPE AttributeKeeper_OUTPUT_0   OUTPUT FEATURE_TYPE AttributeKeeper_OUTPUT_1
 # -------------------------------------------------------------------------
 MACRO GFI_DIRECTIVES 
 
 FACTORY_DEF * CreationFactory    FACTORY_NAME GFI_Creator    OUTPUT FEATURE_TYPE _____CREATED______
-FACTORY_DEF * QueryFactory    FACTORY_NAME GFI    INPUT FEATURE_TYPE _____CREATED______    QUERY_SQL            select<space>_ID<comma>BUS<space>as<space>BUSID<comma>TIMESTAMP<comma>BUSDAY<comma>TYPE<comma>ROUTE<comma>DAYTYPE<space>from<space>V_GFIGOOD<lf>where<space>V_GFIGOOD.BUS<space>in<space>V_GPSBUS<space>and<space>V_GFIGOOD.TYPE<space>in<space><openparen>115<comma>119<comma>129<comma>143<closeparen><lf>and<space>BUS=1014<lf>order<space>by<space>BUS<comma>TIMESTAMP<lf>    COMBINE_ATTRIBUTES   RESULT_ONLY    COMBINE_GEOMETRY     RESULT_ONLY    READER_TYPE         	SQLITE3    READER_DATASET      	"C:<backslash>AndrewRoss<backslash>Work<backslash>AR_Whistler<backslash>Data<backslash>whistlerData03.db"    READER_PARAMS        $(GFI_DIRECTIVES)    OUTPUT RESULT FEATURE_TYPE GFI_RESULT
+FACTORY_DEF * QueryFactory    FACTORY_NAME GFI    INPUT FEATURE_TYPE _____CREATED______    QUERY_SQL            select<space>_ID<comma>BUS<space>as<space>BUSID<comma>TIMESTAMP<comma>BUSDAY<comma>TYPE<comma>ROUTE<comma>DAYTYPE<space>from<space>V_GFIGOOD<lf>where<space>V_GFIGOOD.BUS<space>in<space>V_GPSBUS<space>and<space>V_GFIGOOD.TYPE<space>in<space><openparen>115<comma>119<comma>129<comma>143<closeparen><lf>and<space>BUS=1014<space>and<space>TIMESTAMP<space>between<space>1359905720<space>and<space>1359905920<lf>order<space>by<space>BUS<comma>TIMESTAMP<lf>    COMBINE_ATTRIBUTES   RESULT_ONLY    COMBINE_GEOMETRY     RESULT_ONLY    READER_TYPE         	SQLITE3    READER_DATASET      	"C:<backslash>AndrewRoss<backslash>Work<backslash>AR_Whistler<backslash>Data<backslash>whistlerData03.db"    READER_PARAMS        $(GFI_DIRECTIVES)    OUTPUT RESULT FEATURE_TYPE GFI_RESULT
 
 # -------------------------------------------------------------------------
 
-Tcl2 proc 0c4add98_7124_4653_878b_b84d2d8a78f62_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_2}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_2}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
+Tcl2 proc 4eb53c89_df49_49ed_ab33_654d54ee3a703_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_2}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_2}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_2    INPUT  FEATURE_TYPE GFI_RESULT    OUTPUT FEATURE_TYPE AttributeCreator_2_OUTPUT         "@Tcl2( 0c4add98_7124_4653_878b_b84d2d8a78f62_attrSetter {(SOURCE,GFI)} )"
+FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_2    INPUT  FEATURE_TYPE GFI_RESULT    OUTPUT FEATURE_TYPE AttributeCreator_2_OUTPUT         "@Tcl2( 4eb53c89_df49_49ed_ab33_654d54ee3a703_attrSetter {(SOURCE,GFI)} )"
 
 # -------------------------------------------------------------------------
 
@@ -6642,9 +6642,9 @@ FACTORY_DEF * TestFactory    FACTORY_NAME 2DPointReplacer_2    INPUT  FEATURE_TY
 FACTORY_DEF * TeeFactory   FACTORY_NAME "2DPointReplacer_2 POINT Splitter"   INPUT FEATURE_TYPE 2DPointReplacer_2_POINT   OUTPUT FEATURE_TYPE 2DPointReplacer_2_POINT_0   OUTPUT FEATURE_TYPE 2DPointReplacer_2_POINT_1
 # -------------------------------------------------------------------------
 
-Tcl2 proc 9fb0a007_0b26_455d_b628_acdf25c5a1e22_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_3}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_3}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
+Tcl2 proc 8738c157_bd5a_4010_b9b8_7849f651f32c3_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_3}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_3}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_3    INPUT  FEATURE_TYPE 2DPointReplacer_2_POINT_0    OUTPUT FEATURE_TYPE AttributeCreator_3_OUTPUT         "@Tcl2( 9fb0a007_0b26_455d_b628_acdf25c5a1e22_attrSetter {(SOURCE,GPS)} )"
+FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_3    INPUT  FEATURE_TYPE 2DPointReplacer_2_POINT_0    OUTPUT FEATURE_TYPE AttributeCreator_3_OUTPUT         "@Tcl2( 8738c157_bd5a_4010_b9b8_7849f651f32c3_attrSetter {(SOURCE,GPS)} )"
 
 # -------------------------------------------------------------------------
 
@@ -6667,25 +6667,25 @@ FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeRemover    INPUT  FEATURE_TYPE
 
 # -------------------------------------------------------------------------
 
-FACTORY_DEF * ProximityFactory    FACTORY_NAME NeighborFinder    INPUT BASE FEATURE_TYPE AttributeRemover_OUTPUT    INPUT CANDIDATE FEATURE_TYPE AttributeKeeper_OUTPUT_0    SPATIAL_MATCH CLOSEST 100    INSERT_VERTEX_ON_BASE No    CANDIDATE_FEATURES_FIRST No    CLOSE_CANDIDATES_LIST  "close{}"    DISTANCE_ATTR _distance    OUTPUT MATCHED FEATURE_TYPE NeighborFinder_MATCHED        @RenameAttributes(_angle,angle,_candidate_angle,candidate_angle,_candidate_label_angle,candidate_label_angle,_closest_candidate_x,closest_candidate_x,_closest_candidate_y,closest_candidate_y,_closest_base_x,closest_base_x,_closest_base_y,closest_base_y)    OUTPUT UNMATCHED_BASE FEATURE_TYPE NeighborFinder_UNMATCHED_BASE
+FACTORY_DEF * ProximityFactory    FACTORY_NAME NeighborFinder    INPUT BASE FEATURE_TYPE AttributeRemover_OUTPUT    INPUT CANDIDATE FEATURE_TYPE AttributeKeeper_OUTPUT_0    SPATIAL_MATCH CLOSEST 500    INSERT_VERTEX_ON_BASE No    CANDIDATE_FEATURES_FIRST No    CLOSE_CANDIDATES_LIST  "close{}"    DISTANCE_ATTR _distance    OUTPUT MATCHED FEATURE_TYPE NeighborFinder_MATCHED        @RenameAttributes(_angle,angle,_candidate_angle,candidate_angle,_candidate_label_angle,candidate_label_angle,_closest_candidate_x,closest_candidate_x,_closest_candidate_y,closest_candidate_y,_closest_base_x,closest_base_x,_closest_base_y,closest_base_y)    OUTPUT UNMATCHED_BASE FEATURE_TYPE NeighborFinder_UNMATCHED_BASE
 
 FACTORY_DEF * TeeFactory   FACTORY_NAME "NeighborFinder MATCHED Splitter"   INPUT FEATURE_TYPE NeighborFinder_MATCHED   OUTPUT FEATURE_TYPE NeighborFinder_MATCHED_0   OUTPUT FEATURE_TYPE NeighborFinder_MATCHED_1   OUTPUT FEATURE_TYPE NeighborFinder_MATCHED_2   OUTPUT FEATURE_TYPE NeighborFinder_MATCHED_3
 FACTORY_DEF * TeeFactory   FACTORY_NAME "NeighborFinder UNMATCHED_BASE Splitter"   INPUT FEATURE_TYPE NeighborFinder_UNMATCHED_BASE   OUTPUT FEATURE_TYPE NeighborFinder_UNMATCHED_BASE_0   OUTPUT FEATURE_TYPE NeighborFinder_UNMATCHED_BASE_1
 FACTORY_DEF * TeeFactory   FACTORY_NAME "NeighborFinder_UNMATCHED_BASE_0 Disabled Nuker -1 53"   INPUT FEATURE_TYPE NeighborFinder_UNMATCHED_BASE_0
 # -------------------------------------------------------------------------
 
-Tcl2 proc 94d09330_8416_4125_9be5_e6d0ef90ad2b2_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_10}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_10}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
+Tcl2 proc 8b5ed284_934f_47c9_b49e_fd9980d1d2163_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_10}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_10}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_10    INPUT  FEATURE_TYPE NeighborFinder_UNMATCHED_BASE_1    OUTPUT FEATURE_TYPE AttributeCreator_10_OUTPUT         "@Tcl2( 94d09330_8416_4125_9be5_e6d0ef90ad2b2_attrSetter {(_TYPE,NONEIGHBOUR)} )"
+FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_10    INPUT  FEATURE_TYPE NeighborFinder_UNMATCHED_BASE_1    OUTPUT FEATURE_TYPE AttributeCreator_10_OUTPUT         "@Tcl2( 8b5ed284_934f_47c9_b49e_fd9980d1d2163_attrSetter {(_TYPE,NONEIGHBOUR)} )"
 
 # -------------------------------------------------------------------------
 FACTORY_DEF * TeeFactory   FACTORY_NAME "AttributeCreator_7 (Disabled) Nuker"   INPUT FEATURE_TYPE NeighborFinder_UNMATCHED_BASE_0
 FACTORY_DEF * TeeFactory   FACTORY_NAME "AttributeCreator_7_OUTPUT Disabled Nuker -1 52"   INPUT FEATURE_TYPE AttributeCreator_7_OUTPUT
 # -------------------------------------------------------------------------
 
-Tcl2 proc 725bc053_3709_4997_a71c_86d1aacde79b2_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_11}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_11}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
+Tcl2 proc 7cd67830_41c6_4531_ba39_6ba3f2ac8a483_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_11}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_11}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_11    INPUT  FEATURE_TYPE NeighborFinder_MATCHED_3    OUTPUT FEATURE_TYPE AttributeCreator_11_OUTPUT         "@Tcl2( 725bc053_3709_4997_a71c_86d1aacde79b2_attrSetter {(_TYPE,NEIGHBOUR)} )"
+FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_11    INPUT  FEATURE_TYPE NeighborFinder_MATCHED_3    OUTPUT FEATURE_TYPE AttributeCreator_11_OUTPUT         "@Tcl2( 7cd67830_41c6_4531_ba39_6ba3f2ac8a483_attrSetter {(_TYPE,NEIGHBOUR)} )"
 
 # -------------------------------------------------------------------------
 
@@ -6707,9 +6707,9 @@ FACTORY_DEF * ConnectionFactory     FACTORY_NAME PointConnector_3     INPUT  FEA
 
 # -------------------------------------------------------------------------
 
-Tcl2 proc 4a284832_28e1_48c1_b9d7_1f53de35a65b2_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_9}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_9}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
+Tcl2 proc b277e8f1_1082_463d_a811_ae3e7bc50b5e3_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_9}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_9}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_9    INPUT  FEATURE_TYPE PointConnector_3_LINE    OUTPUT FEATURE_TYPE AttributeCreator_9_OUTPUT         "@Tcl2( 4a284832_28e1_48c1_b9d7_1f53de35a65b2_attrSetter {(_TYPE,NEIGHBOUR)} )"
+FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_9    INPUT  FEATURE_TYPE PointConnector_3_LINE    OUTPUT FEATURE_TYPE AttributeCreator_9_OUTPUT         "@Tcl2( b277e8f1_1082_463d_a811_ae3e7bc50b5e3_attrSetter {(_TYPE,NEIGHBOUR)} )"
 
 # -------------------------------------------------------------------------
 
@@ -6756,19 +6756,19 @@ FACTORY_DEF * TeeFactory    FACTORY_NAME TestFilter_TOODIVERGENT_VectorSetterUpp
 # do it through TCL. This should allow this transformer to be used with a
 # Desktop license, even though ThinPointCloud requires Professional.
 
-Tcl2 proc 5e3751c8_5585_4ba3_a83b_b359b1d274e72_thinPointCloud {} {    FME_Execute ThinPointCloud NO_THINNING 1; }
-FACTORY_DEF * TeeFactory    FACTORY_NAME TestFilter_TOODIVERGENT___PointCloudThinner    INPUT FEATURE_TYPE TestFilter_TOODIVERGENT___PointCloudFeatures___    OUTPUT FEATURE_TYPE __viewme__       @Tcl2("5e3751c8_5585_4ba3_a83b_b359b1d274e72_thinPointCloud")
-Tcl2 proc 5e3751c8_5585_4ba3_a83b_b359b1d274e72_prepareRaster {subsetStartRow subsetNumRows subsetStartCol subsetNumCols} {    set useDI [string equal -nocase {$(FME_VIEWER_APP)} {fmedatainspector}];    if {!$useDI} {       FME_Execute ApplyRasterRotation BILINEAR;    };    set doResample [string equal {NoReduction} {Resample}];    set doSubset [string equal {NoReduction} {Subset}];    set doBounds [string equal {NoReduction} {BoundingBoxOnly}];    if {$doBounds}  {       FME_Execute GeometryType fme_polygon;    }    elseif {$doResample || $doSubset} {       set comment {          First, we need to prefix all the attributes. This is done because          we are going to call @RasterProperties, and we want to make sure          it doesn't overwrite any existing attributes.       };       set kAttrPrefix ".";       set allNames [FME_AttributeNames];       foreach oldName $allNames {          set newName $kAttrPrefix;          append newName $oldName;          FME_RenameAttribute $newName $oldName;       };       FME_Execute RasterProperties RASTER;       if {$doResample} {          set oldNumCols [FME_GetAttribute _num_columns];          set oldNumRows [FME_GetAttribute _num_rows];          set oldSpacingX [FME_GetAttribute _spacing_x];          set oldSpacingY [FME_GetAttribute _spacing_y];          set kMinNumCells 32;          set kMaxNumCells 512;          set comment {             We will only resample if both dimensions are greater than the             minimum num cells, and at least one is greater than the maximum.          };          if {$oldNumRows > $kMinNumCells && $oldNumCols > $kMinNumCells && ($oldNumRows > $kMaxNumCells || $oldNumCols > $kMaxNumCells)} {             set newSpacingX 1.0;             set newSpacingY 1.0;             if {$oldNumRows > $oldNumCols} {                set comment {                   If we have more rows than columns, we need to choose a spacing                   that reduces the number of rows to the maximum we've chosen.                };                set newSpacingY [expr 1.0 * $oldNumRows * $oldSpacingY / $kMaxNumCells];                set newSpacingX [expr 1.0 * $newSpacingY / $oldSpacingY * $oldSpacingX];                set comment {                   Now we need to check if doing this will result in the columns                   going below the minimum. If so, choose the spacing such that                   we only go down to the minimum (and not past).                };                set newNumCols [expr $oldNumCols * $oldSpacingX / $newSpacingX];                if {$newNumCols < $kMinNumCells}                {                   set newSpacingX [expr 1.0 * $oldNumCols * $oldSpacingX / $kMinNumCells];                   set newSpacingY [expr 1.0 * $newSpacingX / $oldSpacingX * $oldSpacingY];                };             }             else {                set comment {                   This is identical to the above case, except the roles of                   rows and cols are reversed.                };                set newSpacingX [expr 1.0 * $oldNumCols * $oldSpacingX / $kMaxNumCells];                set newSpacingY [expr 1.0 * $newSpacingX / $oldSpacingX * $oldSpacingY];                set newNumRows [expr $oldNumRows * $oldSpacingY / $newSpacingY];                if {$newNumRows < $kMinNumCells}                {                   set newSpacingY [expr 1.0 * $oldNumRows * $oldSpacingY / $kMinNumCells];                   set newSpacingX [expr 1.0 * $newSpacingY / $oldSpacingY * $oldSpacingX];                };             };             FME_Execute ResampleRaster CELL_SIZE $newSpacingX $newSpacingY NearestNeighbor;          };       }       elseif {$doSubset} {          set comment {             Get the value of some strings that may be attributes or constants.             Note that we pass in the attribute prefix we're using, because if             one does turn out to be an attribute, it won't actually be the exact             name in the string (since we renamed all our attributes above).          };          set rasterNumRows [FME_GetAttribute _num_rows];          set rasterNumCols [FME_GetAttribute _num_columns];          set comment {             Only do subsetting if the specified start position is actually             within the raster.          };          if {$subsetStartRow < $rasterNumRows && $subsetStartCol < $rasterNumCols}          {             set comment {                Now bound the subset to the size of the raster, so that                we don't create padding.             };             if {[expr $subsetStartRow + $subsetNumRows] > $rasterNumRows}             {                set subsetNumRows [expr $rasterNumRows - $subsetStartRow];             };             if {[expr $subsetStartCol + $subsetNumCols] > $rasterNumCols}             {                set subsetNumCols [expr $rasterNumCols - $subsetStartCol];             };             FME_Execute SubsetRaster $subsetStartRow $subsetNumRows $subsetStartCol $subsetNumCols;          };       };       set comment {          Remove all the attributes added by @RasterProperties and remove the          prefix from the real attributes. We assume they all start with an          underscore.       };       FME_Execute RemoveAttributes fme_regexp_match {^_};       foreach oldName $allNames {          set newName $kAttrPrefix;          append newName $oldName;          FME_RenameAttribute $oldName $newName;       };    }; }
-FACTORY_DEF * TeeFactory    FACTORY_NAME TestFilter_TOODIVERGENT_RasterSetterUpper    INPUT FEATURE_TYPE TestFilter_TOODIVERGENT___RasterFeatures___    OUTPUT FEATURE_TYPE __viewme__       @Tcl2("5e3751c8_5585_4ba3_a83b_b359b1d274e72_prepareRaster {<Unused>} {<Unused>} {<Unused>} {<Unused>}")
+Tcl2 proc 67dedcbc_80cd_43ec_a70a_d6b64c00d86a3_thinPointCloud {} {    FME_Execute ThinPointCloud NO_THINNING 1; }
+FACTORY_DEF * TeeFactory    FACTORY_NAME TestFilter_TOODIVERGENT___PointCloudThinner    INPUT FEATURE_TYPE TestFilter_TOODIVERGENT___PointCloudFeatures___    OUTPUT FEATURE_TYPE __viewme__       @Tcl2("67dedcbc_80cd_43ec_a70a_d6b64c00d86a3_thinPointCloud")
+Tcl2 proc 67dedcbc_80cd_43ec_a70a_d6b64c00d86a3_prepareRaster {subsetStartRow subsetNumRows subsetStartCol subsetNumCols} {    set useDI [string equal -nocase {$(FME_VIEWER_APP)} {fmedatainspector}];    if {!$useDI} {       FME_Execute ApplyRasterRotation BILINEAR;    };    set doResample [string equal {NoReduction} {Resample}];    set doSubset [string equal {NoReduction} {Subset}];    set doBounds [string equal {NoReduction} {BoundingBoxOnly}];    if {$doBounds}  {       FME_Execute GeometryType fme_polygon;    }    elseif {$doResample || $doSubset} {       set comment {          First, we need to prefix all the attributes. This is done because          we are going to call @RasterProperties, and we want to make sure          it doesn't overwrite any existing attributes.       };       set kAttrPrefix ".";       set allNames [FME_AttributeNames];       foreach oldName $allNames {          set newName $kAttrPrefix;          append newName $oldName;          FME_RenameAttribute $newName $oldName;       };       FME_Execute RasterProperties RASTER;       if {$doResample} {          set oldNumCols [FME_GetAttribute _num_columns];          set oldNumRows [FME_GetAttribute _num_rows];          set oldSpacingX [FME_GetAttribute _spacing_x];          set oldSpacingY [FME_GetAttribute _spacing_y];          set kMinNumCells 32;          set kMaxNumCells 512;          set comment {             We will only resample if both dimensions are greater than the             minimum num cells, and at least one is greater than the maximum.          };          if {$oldNumRows > $kMinNumCells && $oldNumCols > $kMinNumCells && ($oldNumRows > $kMaxNumCells || $oldNumCols > $kMaxNumCells)} {             set newSpacingX 1.0;             set newSpacingY 1.0;             if {$oldNumRows > $oldNumCols} {                set comment {                   If we have more rows than columns, we need to choose a spacing                   that reduces the number of rows to the maximum we've chosen.                };                set newSpacingY [expr 1.0 * $oldNumRows * $oldSpacingY / $kMaxNumCells];                set newSpacingX [expr 1.0 * $newSpacingY / $oldSpacingY * $oldSpacingX];                set comment {                   Now we need to check if doing this will result in the columns                   going below the minimum. If so, choose the spacing such that                   we only go down to the minimum (and not past).                };                set newNumCols [expr $oldNumCols * $oldSpacingX / $newSpacingX];                if {$newNumCols < $kMinNumCells}                {                   set newSpacingX [expr 1.0 * $oldNumCols * $oldSpacingX / $kMinNumCells];                   set newSpacingY [expr 1.0 * $newSpacingX / $oldSpacingX * $oldSpacingY];                };             }             else {                set comment {                   This is identical to the above case, except the roles of                   rows and cols are reversed.                };                set newSpacingX [expr 1.0 * $oldNumCols * $oldSpacingX / $kMaxNumCells];                set newSpacingY [expr 1.0 * $newSpacingX / $oldSpacingX * $oldSpacingY];                set newNumRows [expr $oldNumRows * $oldSpacingY / $newSpacingY];                if {$newNumRows < $kMinNumCells}                {                   set newSpacingY [expr 1.0 * $oldNumRows * $oldSpacingY / $kMinNumCells];                   set newSpacingX [expr 1.0 * $newSpacingY / $oldSpacingY * $oldSpacingX];                };             };             FME_Execute ResampleRaster CELL_SIZE $newSpacingX $newSpacingY NearestNeighbor;          };       }       elseif {$doSubset} {          set comment {             Get the value of some strings that may be attributes or constants.             Note that we pass in the attribute prefix we're using, because if             one does turn out to be an attribute, it won't actually be the exact             name in the string (since we renamed all our attributes above).          };          set rasterNumRows [FME_GetAttribute _num_rows];          set rasterNumCols [FME_GetAttribute _num_columns];          set comment {             Only do subsetting if the specified start position is actually             within the raster.          };          if {$subsetStartRow < $rasterNumRows && $subsetStartCol < $rasterNumCols}          {             set comment {                Now bound the subset to the size of the raster, so that                we don't create padding.             };             if {[expr $subsetStartRow + $subsetNumRows] > $rasterNumRows}             {                set subsetNumRows [expr $rasterNumRows - $subsetStartRow];             };             if {[expr $subsetStartCol + $subsetNumCols] > $rasterNumCols}             {                set subsetNumCols [expr $rasterNumCols - $subsetStartCol];             };             FME_Execute SubsetRaster $subsetStartRow $subsetNumRows $subsetStartCol $subsetNumCols;          };       };       set comment {          Remove all the attributes added by @RasterProperties and remove the          prefix from the real attributes. We assume they all start with an          underscore.       };       FME_Execute RemoveAttributes fme_regexp_match {^_};       foreach oldName $allNames {          set newName $kAttrPrefix;          append newName $oldName;          FME_RenameAttribute $oldName $newName;       };    }; }
+FACTORY_DEF * TeeFactory    FACTORY_NAME TestFilter_TOODIVERGENT_RasterSetterUpper    INPUT FEATURE_TYPE TestFilter_TOODIVERGENT___RasterFeatures___    OUTPUT FEATURE_TYPE __viewme__       @Tcl2("67dedcbc_80cd_43ec_a70a_d6b64c00d86a3_prepareRaster {<Unused>} {<Unused>} {<Unused>} {<Unused>}")
 # Now route all the features into the recorder, changing their
 # feature type to the transformer name so that they view nicely
-# 5e3751c8_5585_4ba3_a83b_b359b1d274e72_VIS_FEAT_TYPE changes the feature types
+# 67dedcbc_80cd_43ec_a70a_d6b64c00d86a3_VIS_FEAT_TYPE changes the feature types
 # of the features being visualized.
 
-DEFAULT_MACRO 5e3751c8_5585_4ba3_a83b_b359b1d274e72_VIS_FEAT_TYPE TestFilter_TOODIVERGENT$(CATMAC)
+DEFAULT_MACRO 67dedcbc_80cd_43ec_a70a_d6b64c00d86a3_VIS_FEAT_TYPE TestFilter_TOODIVERGENT$(CATMAC)
 DEFAULT_MACRO VISUALIZER_FEATURE_FILE $(WORKSPACE_TEMP_DIR)/$(SAFE_FFS_NAME).ffs
 DEFAULT_MACRO VISUALIZER_CREATE_SPATIAL_INDEX NO
-FACTORY_DEF * RecorderFactory    FACTORY_NAME TestFilter_TOODIVERGENT_Recorder    INPUT FEATURE_TYPE __viewme__  _wb_termination_feature Yes @FeatureType(TERMINATOR_@Value(_wb_termination_xformer))    INPUT FEATURE_TYPE __viewme__  @FeatureType($(5e3751c8_5585_4ba3_a83b_b359b1d274e72_VIS_FEAT_TYPE))    FEATURE_FILE "$(VISUALIZER_FEATURE_FILE)"    CREATE_SPATIAL_INDEX "$(VISUALIZER_CREATE_SPATIAL_INDEX)"    INSPECTOR "$(VISUALIZER_CREATE_SPATIAL_INDEX)"    MODE RECORD_PASS_THROUGH
+FACTORY_DEF * RecorderFactory    FACTORY_NAME TestFilter_TOODIVERGENT_Recorder    INPUT FEATURE_TYPE __viewme__  _wb_termination_feature Yes @FeatureType(TERMINATOR_@Value(_wb_termination_xformer))    INPUT FEATURE_TYPE __viewme__  @FeatureType($(67dedcbc_80cd_43ec_a70a_d6b64c00d86a3_VIS_FEAT_TYPE))    FEATURE_FILE "$(VISUALIZER_FEATURE_FILE)"    CREATE_SPATIAL_INDEX "$(VISUALIZER_CREATE_SPATIAL_INDEX)"    INSPECTOR "$(VISUALIZER_CREATE_SPATIAL_INDEX)"    MODE RECORD_PASS_THROUGH
 
 # -------------------------------------------------------------------------
 FACTORY_DEF * TeeFactory   FACTORY_NAME "Matcher (Disabled) Nuker"   INPUT FEATURE_TYPE Closest_stop_COMPLETE_0   INPUT FEATURE_TYPE TestFilter_MATCHDIFF_0
@@ -6797,9 +6797,9 @@ FACTORY_DEF * ConnectionFactory     FACTORY_NAME PointConnector_2     INPUT  FEA
 
 # -------------------------------------------------------------------------
 
-Tcl2 proc 9026af2c_b03f_4bd2_b329_a2839654782f2_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
+Tcl2 proc 6bf84c0b_dbbb_4518_870f_d7ecec96a00b3_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator    INPUT  FEATURE_TYPE PointConnector_2_LINE    OUTPUT FEATURE_TYPE AttributeCreator_OUTPUT         "@Tcl2( 9026af2c_b03f_4bd2_b329_a2839654782f2_attrSetter {(_TYPE,ANGLEFIX)} )"
+FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator    INPUT  FEATURE_TYPE PointConnector_2_LINE    OUTPUT FEATURE_TYPE AttributeCreator_OUTPUT         "@Tcl2( 6bf84c0b_dbbb_4518_870f_d7ecec96a00b3_attrSetter {(_TYPE,ANGLEFIX)} )"
 
 # -------------------------------------------------------------------------
 FACTORY_DEF * TeeFactory   FACTORY_NAME "Tester_2 (Disabled) Nuker"   INPUT FEATURE_TYPE PythonCaller_OUTPUT_0
@@ -6828,9 +6828,9 @@ FACTORY_DEF * TeeFactory    FACTORY_NAME Creator_Cloner    INPUT FEATURE_TYPE __
 
 # -------------------------------------------------------------------------
 
-Tcl2 proc 04354ca6_0a63_42ad_af3e_c1debff70a172_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_12}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_12}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
+Tcl2 proc 230988bf_5923_44f6_acc2_2d7b085a47b03_attrSetter { attrList } {     set attrList [string trim $attrList {()}];     set attrs [split $attrList {,} ];     foreach {attrName attrVal} $attrs {         if { [string match {*<at>*} $attrName] == 1 } {             set attrName [FME_Execute EvaluateExpression {STRING} $attrName {AttributeCreator_12}];         } else {             set attrName [FME_DecodeText $attrName];         };         if { [string match {*<at>*} $attrVal] == 1 } {             set attrVal [FME_Execute EvaluateExpression {STRING} $attrVal {AttributeCreator_12}];         } else {             set attrVal [FME_DecodeText $attrVal];         };         FME_SetAttribute $attrName $attrVal;     }; };
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_12    INPUT  FEATURE_TYPE Creator_CREATED    OUTPUT FEATURE_TYPE AttributeCreator_12_OUTPUT         "@Tcl2( 04354ca6_0a63_42ad_af3e_c1debff70a172_attrSetter {(CONFIGDATA,1,DISTANCE,100)} )"
+FACTORY_DEF * TeeFactory    FACTORY_NAME AttributeCreator_12    INPUT  FEATURE_TYPE Creator_CREATED    OUTPUT FEATURE_TYPE AttributeCreator_12_OUTPUT         "@Tcl2( 230988bf_5923_44f6_acc2_2d7b085a47b03_attrSetter {(CONFIGDATA,1,DISTANCE,50)} )"
 
 # -------------------------------------------------------------------------
 
@@ -6849,13 +6849,13 @@ FACTORY_DEF * ConnectionFactory     FACTORY_NAME PointConnector_4     INPUT  FEA
 
 # -------------------------------------------------------------------------
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME "AttributeCreator_7_OUTPUT -> GFIGPS_STOPS_MATCH Correlator"    INPUT FEATURE_TYPE AttributeCreator_7_OUTPUT
+FACTORY_DEF * TeeFactory    FACTORY_NAME "AttributeCreator_4_OUTPUT -> GFIGPS_STOPS_MATCH Correlator"    INPUT FEATURE_TYPE AttributeCreator_4_OUTPUT
 # -------------------------------------------------------------------------
 
 FACTORY_DEF * TeeFactory    FACTORY_NAME "AttributeCreator_6_OUTPUT -> GFIGPS_STOPS_MATCH Correlator"    INPUT FEATURE_TYPE AttributeCreator_6_OUTPUT
 # -------------------------------------------------------------------------
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME "AttributeCreator_4_OUTPUT -> GFIGPS_STOPS_MATCH Correlator"    INPUT FEATURE_TYPE AttributeCreator_4_OUTPUT
+FACTORY_DEF * TeeFactory    FACTORY_NAME "AttributeCreator_7_OUTPUT -> GFIGPS_STOPS_MATCH Correlator"    INPUT FEATURE_TYPE AttributeCreator_7_OUTPUT
 # -------------------------------------------------------------------------
 
 FACTORY_DEF * TeeFactory    FACTORY_NAME "AttributeCreator_OUTPUT -> matchNeighbourDiff Correlator"    INPUT FEATURE_TYPE AttributeCreator_OUTPUT    OUTPUT FEATURE_TYPE __GO_TO_FINAL_OUTPUT_ROUTER__       multi_writer_id 1       @Reproject("BCALB-83","BCALB-83")       @Transform(FME_GENERIC,SHAPE)       @SupplyAttributes(__wb_out_feat_type__,matchNeighbourDiff)

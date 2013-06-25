@@ -22,7 +22,7 @@ class FMEmatchBusStops(object):
         # Boarding angle is equal to the direction one would be facing standing on the sidewalk
         # facing the front door of the bus 
         if feature.getAttribute('BEARING'):
-            boardingAngle = (float(feature.getAttribute('BEARING')) -90) % 360
+            boardingAngle = float(feature.getAttribute('BEARING'))
             self.logging("FMEmatchBusStops: boardingAngle %s" % str(boardingAngle))
             
             # For each stop within the 60m radius defined by the neighbour finder determine the difference between the 
@@ -49,6 +49,7 @@ class FMEmatchBusStops(object):
                 minDistance = min(distances.values())
                 # minIndex = distances.index(minDistance)
                 minIndex = [k for k,v in distances.items() if v == minDistance][0]
+                self.logging("FMEmatchBusStops: minDistance %s, minIndex %s" % (str(minDistance)),str(minIndex)))
                 if divergence[minIndex] < 100:
                     #self.logging("FMEmatchBusStops: trying to match: %s" % 'close{'+str(minIndex)+'}.STOPID')
                     match = stopIDs[minIndex] 
