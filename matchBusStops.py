@@ -45,11 +45,24 @@ class FMEmatchBusStops(object):
             self.logging("FMEmatchBusStops: checking %d distances" % len(distances))        
             self.logging("FMEmatchBusStops: len.divergence %d" % len(divergence))        
             
+            '''
+            print "------------------------------------------------------"
+            print "FMEmatchBusStops: starting %s" % feature.getAttribute('_ID')
+            print "stopAngles"
+            print stopAngles
+            print "stopIDs"
+            print stopIDs
+            print "distances"
+            print distances
+            print "divergence"
+            print divergence
+            '''
+            
             while len(distances) > 0:
                 minDistance = min(distances.values())
                 # minIndex = distances.index(minDistance)
                 minIndex = [k for k,v in distances.items() if v == minDistance][0]
-                self.logging("FMEmatchBusStops: minDistance %s, minIndex %s" % (str(minDistance)),str(minIndex)))
+                self.logging("FMEmatchBusStops: minDistance %s, minIndex %s" % (str(minDistance),str(minIndex)))
                 if divergence[minIndex] < 100:
                     #self.logging("FMEmatchBusStops: trying to match: %s" % 'close{'+str(minIndex)+'}.STOPID')
                     match = stopIDs[minIndex] 
@@ -109,7 +122,7 @@ class FMEmatchBusStops(object):
             #self.logging("getListAttribute: -- attribute %s" % a)
             if a.startswith( s[:s.find('{')] ) and a.endswith( s[s.find('}'):] ):
                 i = int( a[a.find('{') + 1 : a.find('}')] )
-                l[i] = str(feature.getAttribute( a ))
+                l[i] = float(feature.getAttribute( a ))
                 self.logging("getListAttribute: -- -- appending %s:%s" % (a,str(feature.getAttribute( a ))))
         # self.logging("getListAttribute: done")
         return l
