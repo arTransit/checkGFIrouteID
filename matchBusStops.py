@@ -1,6 +1,6 @@
 import fmeobjects
 
-LOGIT=1
+LOGIT=0
 
 class FMEmatchBusStops(object):
     def __init__(self):
