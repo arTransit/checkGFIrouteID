@@ -1,6 +1,6 @@
 import fmeobjects
 
-LOGIT=0
+LOGIT=1
 
 class FMEmatchBusStops(object):
     def __init__(self):
@@ -17,6 +17,7 @@ class FMEmatchBusStops(object):
         stopAngles = self.getListAttribute(feature,'close{}.STOPANGLE')
         stopIDs = self.getListAttribute(feature,'close{}.STOPID')
         distances = self.getListAttribute(feature,'close{}.distance')
+        roundabout = self.getListAttribute(feature,'close{}.ROUNDABOUT')
 
         # Calculate the entry angle onto the bus as being 90 degrees left of the current bearing
         # Boarding angle is equal to the direction one would be facing standing on the sidewalk
@@ -44,6 +45,7 @@ class FMEmatchBusStops(object):
             self.logging("FMEmatchBusStops: checking %d stopIDs" % len(stopIDs))        
             self.logging("FMEmatchBusStops: checking %d distances" % len(distances))        
             self.logging("FMEmatchBusStops: len.divergence %d" % len(divergence))        
+            self.logging("FMEmatchBusStops: len.roundabout %d" % len(roundabout))        
             
             '''
             print "------------------------------------------------------"
@@ -57,13 +59,13 @@ class FMEmatchBusStops(object):
             print "divergence"
             print divergence
             '''
-            
+
             while len(distances) > 0:
                 minDistance = min(distances.values())
                 # minIndex = distances.index(minDistance)
                 minIndex = [k for k,v in distances.items() if v == minDistance][0]
                 self.logging("FMEmatchBusStops: minDistance %s, minIndex %s" % (str(minDistance),str(minIndex)))
-                if divergence[minIndex] < 100:
+                if roundabout[minIndex] or divergence[minIndex] < 100:
                     #self.logging("FMEmatchBusStops: trying to match: %s" % 'close{'+str(minIndex)+'}.STOPID')
                     match = stopIDs[minIndex] 
                     self.logging("FMEmatchBusStops: match %s" % str(match))
